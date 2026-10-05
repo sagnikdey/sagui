@@ -1,18 +1,22 @@
 {
   "name": "sagui",
   "private": true,
-  "packageManager": "pnpm@9.15.0",
   "scripts": {
-    "build": "pnpm --filter @sagui/tokens --filter @sagui/ui build",
-    "dev:storybook": "pnpm --filter @sagui/storybook dev",
-    "dev:docs": "pnpm --filter @sagui/docs dev",
-    "build:storybook": "pnpm build && pnpm --filter @sagui/storybook build",
-    "typecheck": "pnpm -r typecheck",
+    "build": "npm run build -w @sagui/tokens -w @sagui/ui",
+    "dev:storybook": "npm run dev -w @sagui/storybook",
+    "dev:docs": "npm run dev -w @sagui/docs",
+    "build:storybook": "npm run build && npm run build -w @sagui/storybook",
+    "build:docs": "npm run build && npm run build -w @sagui/docs",
+    "typecheck": "npm run typecheck -w @sagui/tokens -w @sagui/ui",
     "changeset": "changeset",
-    "release": "pnpm build && changeset publish"
+    "release": "npm run build && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.0",
     "typescript": "^5.6.0"
-  }
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ]
 }
