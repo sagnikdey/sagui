@@ -7,3 +7,5 @@ storybook-static
 _to_delete
 
 *.tsbuildinfo
+.vercel
+.env*
