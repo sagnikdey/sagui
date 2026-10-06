@@ -15,12 +15,13 @@ const root = process.cwd();
 const contentDir = path.join(root, "content");
 const demosDir = path.join(root, "demos");
 
-export type Category = "buttons" | "inputs" | "special-inputs" | "selection" | "cards" | "messages" | "overlays" | "navigation" | "disclosure" | "data-display" | "charts" | "data" | "text";
+export type Category = "buttons" | "inputs" | "special-inputs" | "selection" | "cards" | "messages" | "overlays" | "layout" | "navigation" | "disclosure" | "data-display" | "charts" | "data" | "text";
 export const categories: { id: Category; title: string; blurb: string }[] = [
   { id: "buttons", title: "Buttons", blurb: "Actions, groups, menus and confirmations." },
   { id: "inputs", title: "Inputs", blurb: "Text fields, passwords, search and in-place editing." },
   { id: "special-inputs", title: "Special inputs", blurb: "Numbers, money, phone numbers and tags." },
   { id: "selection", title: "Selection controls", blurb: "Checkboxes, radios, and selects that pick one or many." },
+  { id: "layout", title: "Layout", blurb: "The application frame: sidebar, top bar, main region and inspector." },
   { id: "navigation", title: "Navigation", blurb: "Tabs and breadcrumbs for moving through content." },
   { id: "disclosure", title: "Disclosure", blurb: "Reveal supporting content in place." },
   { id: "data-display", title: "Data display", blurb: "Avatars and badges that label people and status." },
@@ -56,6 +57,7 @@ const order: Record<Category, string[]> = {
   cards: ["card", "metric-card", "empty-state", "animated-counter"],
   messages: ["alert", "toast"],
   overlays: ["dialog", "drawer", "bottom-sheet", "popover", "tooltip"],
+  layout: ["app-shell"],
 };
 
 function read(file: string) {
