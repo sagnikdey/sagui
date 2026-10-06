@@ -67,6 +67,15 @@
   --color-chart-4: var(--sg-chart-4);
 }
 
+/* App shell layout. Theme-agnostic; override on the AppShell root (style or className) to resize a single shell. */
+:root {
+  --sg-shell-header-h: 3.5rem;
+  --sg-shell-sidebar-w: 16rem;
+  --sg-shell-sidebar-w-collapsed: 3.75rem;
+  --sg-shell-aside-w: 20rem;
+  --sg-shell-mobile-sidebar-w: 18rem; /* capped at the shell width minus 3rem */
+}
+
 :root {
   --sg-background: oklch(0.99 0.003 85);
   --sg-foreground: oklch(0.21 0.01 260);

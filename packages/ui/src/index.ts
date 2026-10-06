@@ -117,3 +117,30 @@ export { TextReveal, type TextRevealProps } from "./components/text-reveal/text-
 export { InViewTitle, type InViewTitleVariant, type InViewTitleProps } from "./components/in-view-title/in-view-title";
 export { TextMorph, type TextMorphProps } from "./components/text-morph/text-morph";
 export { TextShimmer, type TextShimmerProps } from "./components/text-shimmer/text-shimmer";
+export {
+  AppShell,
+  AppShellHeader,
+  AppShellPageHeader,
+  AppShellSidebar,
+  AppShellAside,
+  SidebarHeader,
+  SidebarContent,
+  SidebarFooter,
+  SidebarBrand,
+  SidebarGroup,
+  SidebarItem,
+  SidebarTrigger,
+  AsideTrigger,
+  useAppShell,
+  type AppShellMode,
+  type AppShellProps,
+  type AppShellHeaderProps,
+  type AppShellPageHeaderProps,
+  type AppShellSidebarProps,
+  type AppShellAsideProps,
+  type SidebarBrandProps,
+  type SidebarGroupProps,
+  type SidebarItemProps,
+  type SidebarTriggerProps,
+  type AsideTriggerProps,
+} from "./components/app-shell/app-shell";
