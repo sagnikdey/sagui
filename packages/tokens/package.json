@@ -1,10 +1,20 @@
 {
   "name": "@sagui/tokens",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Design tokens for SagUI",
   "license": "MIT",
-  "files": ["src"],
-  "exports": { "./tokens.css": "./src/tokens.css", "./motion": "./src/motion.ts" },
-  "scripts": { "build": "echo tokens ok", "typecheck": "tsc --noEmit -p ." },
-  "publishConfig": { "access": "public" }
+  "files": [
+    "src"
+  ],
+  "exports": {
+    "./tokens.css": "./src/tokens.css",
+    "./motion": "./src/motion.ts"
+  },
+  "scripts": {
+    "build": "echo tokens ok",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }
