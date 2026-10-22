@@ -2,14 +2,15 @@
   "name": "sagui",
   "private": true,
   "scripts": {
-    "build": "npm run build -w @sagui/tokens -w @sagui/ui",
+    "build": "npm run build -w @sagui/tokens -w @sagui/ui -w @sagui/mcp",
     "dev:storybook": "npm run dev -w @sagui/storybook",
     "dev:docs": "npm run dev -w @sagui/docs",
     "build:storybook": "npm run build && npm run build -w @sagui/storybook",
     "build:docs": "npm run build && npm run build -w @sagui/docs",
     "typecheck": "npm run typecheck -w @sagui/tokens -w @sagui/ui",
     "changeset": "changeset",
-    "release": "npm run build && changeset publish"
+    "release": "npm run build && changeset publish",
+    "build:mcp": "npm run build -w @sagui/mcp"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.0",
