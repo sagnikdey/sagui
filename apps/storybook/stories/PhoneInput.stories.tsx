@@ -2,11 +2,12 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 import { PhoneInput } from "@sagui/ui";
 
+import { figma } from "../.storybook/figma";
 const meta = {
-  title: "Special inputs/Phone input",
+  title: "Form Elements/Phone Input",
   component: PhoneInput,
   tags: ["autodocs"],
-  parameters: { layout: "padded" },
+  parameters: { design: figma("58:11138"), layout: "padded" },
   args: { label: "Phone number" },
   decorators: [(Story) => <div className="h-[420px] w-[360px]"><Story /></div>],
 } satisfies Meta<typeof PhoneInput>;
@@ -21,6 +22,6 @@ export const Disabled: Story = { args: { disabled: true } };
 export const E164Output: Story = {
   render: function Render() {
     const [value, setValue] = useState("");
-    return <div className="grid gap-3"><PhoneInput label="Phone number" onValueChange={setValue} /><code className="text-xs text-muted-foreground">e164 = {value || "(empty)"}</code></div>;
+    return <div className="grid gap-3"><PhoneInput label="Phone number" onValueChange={setValue} /><code className="text-xs text-fg-muted">e164 = {value || "(empty)"}</code></div>;
   },
 };

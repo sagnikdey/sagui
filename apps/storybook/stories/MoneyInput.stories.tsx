@@ -2,11 +2,12 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 import { MoneyInput } from "@sagui/ui";
 
+import { figma } from "../.storybook/figma";
 const meta = {
-  title: "Special inputs/Money input",
+  title: "Form Elements/Money Input",
   component: MoneyInput,
   tags: ["autodocs"],
-  parameters: { layout: "padded" },
+  parameters: { design: figma("58:11009"), layout: "padded" },
   args: { label: "Amount", defaultValue: 12500 },
   decorators: [(Story) => <div className="w-[420px]"><Story /></div>],
 } satisfies Meta<typeof MoneyInput>;
@@ -23,6 +24,6 @@ export const Disabled: Story = { args: { disabled: true } };
 export const MinorUnits: Story = {
   render: function Render() {
     const [value, setValue] = useState<number | null>(1250);
-    return <div className="grid gap-3"><MoneyInput label="Amount" value={value} onValueChange={(next) => setValue(next)} /><code className="text-xs text-muted-foreground">value = {String(value)}</code></div>;
+    return <div className="grid gap-3"><MoneyInput label="Amount" value={value} onValueChange={(next) => setValue(next)} /><code className="text-xs text-fg-muted">value = {String(value)}</code></div>;
   },
 };

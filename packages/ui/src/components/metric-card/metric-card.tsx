@@ -15,6 +15,8 @@ export interface MetricCardProps {
   context: string;
   /** A signed change such as "+12.4%". A leading plus reads green, a leading minus red. */
   change?: string;
+  /** Override the color the sign implies, for metrics where up is bad (review time, churn) or down is good. */
+  changeTone?: "positive" | "negative" | "neutral";
   className?: string;
 }
 
@@ -60,21 +62,22 @@ function Swap({ text, morph = false, block = false }: { text: string; morph?: bo
 }
 
 /** A compact summary for a number that needs context. The number rolls, and the label, change and context reword in place. */
-export function MetricCard({ label, value, suffix, prefix, decimals, context, change, className }: MetricCardProps) {
+export function MetricCard({ label, value, suffix, prefix, decimals, context, change, changeTone, className }: MetricCardProps) {
   const reduceMotion = !!useReducedMotion();
-  const trend = change && /^[+]/.test(change) ? "up" : change && /^[-−]/.test(change) ? "down" : undefined;
+  const signed = change && /^[+]/.test(change) ? "up" : change && /^[-−]/.test(change) ? "down" : undefined;
+  const trend = changeTone === "positive" ? "up" : changeTone === "negative" ? "down" : changeTone === "neutral" ? undefined : signed;
   return (
-    <article className={cn("min-w-0 rounded-[var(--radius-xl)] border border-border bg-surface p-6 shadow-resting max-[380px]:p-4", className)}>
+    <article className={cn("min-w-0 rounded-[var(--radius-xl)] border border-border-default bg-bg-surface p-6 shadow-resting max-[380px]:p-4", className)}>
       <div className="mb-8 flex items-center justify-between gap-3 text-sm max-[380px]:mb-6 max-[380px]:flex-wrap max-[380px]:items-start">
-        <span className="text-muted-foreground"><Swap text={label} block /></span>
+        <span className="text-fg-muted"><Swap text={label} block /></span>
         <AnimatePresence initial={false}>
           {change && (
             <motion.small
               key="change"
               className={cn(
-                "inline-flex flex-none rounded-full border border-border px-2 py-[3px] text-sm tabular-nums text-muted-foreground transition-colors duration-[var(--duration-quick)] motion-reduce:transition-none",
-                trend === "up" && "border-transparent bg-[color-mix(in_oklab,var(--color-success)_11%,transparent)] text-success",
-                trend === "down" && "border-transparent bg-[color-mix(in_oklab,var(--color-destructive)_11%,transparent)] text-destructive"
+                "inline-flex flex-none rounded-full border border-border-default px-2 py-[3px] text-sm tabular-nums text-fg-muted transition-colors duration-[var(--duration-quick)] motion-reduce:transition-none",
+                trend === "up" && "border-transparent bg-[color-mix(in_oklab,var(--color-success-default)_11%,transparent)] text-success-default",
+                trend === "down" && "border-transparent bg-[color-mix(in_oklab,var(--color-danger-default)_11%,transparent)] text-danger-default"
               )}
               initial={{ opacity: 0, scale: reduceMotion ? 1 : 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -87,7 +90,7 @@ export function MetricCard({ label, value, suffix, prefix, decimals, context, ch
         </AnimatePresence>
       </div>
       <AnimatedCounter value={value} suffix={suffix} prefix={prefix} decimals={decimals} animateOnView />
-      <p className="m-0 mt-4 text-sm leading-snug text-muted-foreground"><Swap text={context} block /></p>
+      <p className="m-0 mt-4 text-sm leading-snug text-fg-muted"><Swap text={context} block /></p>
     </article>
   );
 }

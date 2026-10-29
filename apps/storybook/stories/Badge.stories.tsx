@@ -3,8 +3,10 @@ import { useState } from "react";
 import { Check, Clock } from "lucide-react";
 import { Badge, Button } from "@sagui/ui";
 
+import { figma } from "../.storybook/figma";
 const meta = {
-  title: "Data display/Badge",
+  title: "Display/Badge",
+  parameters: { design: figma("143:16728") },
   component: Badge,
   tags: ["autodocs"],
   args: { children: "Active", tone: "success", size: "md" },
@@ -17,7 +19,9 @@ export const Default: Story = {};
 export const Tones: Story = {
   render: () => <div className="flex gap-2">{(["neutral", "success", "info", "warning", "danger"] as const).map((t) => <Badge key={t} tone={t}>{t}</Badge>)}</div>,
 };
-export const WithIcon: Story = { args: { icon: <Check size={12} /> } };
+export const WithIcon: Story = {
+  render: (args) => <Badge {...args} icon={<Check size={12} />} />,
+};
 export const Small: Story = { args: { size: "sm" } };
 export const Morphing: Story = {
   render: function Render() {

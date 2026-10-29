@@ -1,17 +1,27 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import type React from "react";
 import { useState } from "react";
 import { AvatarGroup, Button } from "@sagui/ui";
 
+import { figma } from "../.storybook/figma";
 const people = ["Ada Lovelace", "Grace Hopper", "Alan Turing", "Katherine Johnson", "Linus Torvalds", "Margaret Hamilton", "Dennis Ritchie"].map((name) => ({ name }));
 
+function withTopPadding(Story: () => React.JSX.Element) {
+  return (
+    <div className="pt-10">
+      <Story />
+    </div>
+  );
+}
+
 const meta = {
-  title: "Data display/Avatar group",
+  title: "Display/Avatar Group",
   component: AvatarGroup,
   tags: ["autodocs"],
-  parameters: { layout: "padded" },
+  parameters: { design: figma("135:16075"), layout: "padded" },
   args: { members: people, max: 4, size: "md" },
   argTypes: { size: { control: "inline-radio", options: ["sm", "md", "lg"] } },
-  decorators: [(Story) => <div className="pt-10"><Story /></div>],
+  decorators: [withTopPadding],
 } satisfies Meta<typeof AvatarGroup>;
 export default meta;
 type Story = StoryObj<typeof meta>;

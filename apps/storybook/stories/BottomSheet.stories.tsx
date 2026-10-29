@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { BottomSheet, BottomSheetClose, Button } from "@sagui/ui";
 
-const meta = { title: "Overlays/Bottom sheet", component: BottomSheet, tags: ["autodocs"], parameters: { layout: "centered" } } satisfies Meta<typeof BottomSheet>;
+import { figma } from "../.storybook/figma";
+const meta = { title: "Overlays/Bottom Sheet", component: BottomSheet, tags: ["autodocs"], parameters: { design: figma("108:7035"), layout: "centered" } } satisfies Meta<typeof BottomSheet>;
 export default meta;
 type Story = StoryObj<typeof meta>;
 
@@ -10,7 +11,7 @@ export const Default: Story = {
   render: (args) => (
     <BottomSheet {...args}>
       <div className="grid gap-3">
-        {Array.from({ length: 14 }, (_, index) => <div key={index} className="rounded-[var(--radius-md)] border border-border p-3">Itinerary item {index + 1}</div>)}
+        {Array.from({ length: 14 }, (_, index) => <div key={index} className="rounded-[var(--radius-md)] border border-border-default p-3">Itinerary item {index + 1}</div>)}
         <BottomSheetClose asChild><Button variant="outline">Done</Button></BottomSheetClose>
       </div>
     </BottomSheet>

@@ -1,8 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { NotificationCenter } from "@sagui/ui";
 
+import { figma } from "../.storybook/figma";
 const meta = {
-  title: "Messages/Notification center",
+  title: "Display/Notification Center",
+  parameters: { design: figma("143:16979") },
   component: NotificationCenter,
   tags: ["autodocs"],
   args: {

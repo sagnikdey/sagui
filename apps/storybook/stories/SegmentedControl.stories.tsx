@@ -1,8 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { SegmentedControl } from "@sagui/ui";
 
+import { figma } from "../.storybook/figma";
 const meta = {
-  title: "Selection/Segmented control",
+  title: "Navigation/Segmented Control",
+  parameters: { design: figma("58:10142") },
   component: SegmentedControl,
   tags: ["autodocs"],
   args: {
@@ -18,8 +20,8 @@ export const Default: Story = {};
 export const WithAccessory: Story = {
   args: {
     options: [
-      { value: "all", label: "All", accessory: <span className="text-xs text-muted-foreground">24</span> },
-      { value: "open", label: "Open", accessory: <span className="text-xs text-muted-foreground">9</span> },
+      { value: "all", label: "All", accessory: <span className="text-xs text-fg-muted">24</span> },
+      { value: "open", label: "Open", accessory: <span className="text-xs text-fg-muted">9</span> },
       { value: "closed", label: "Closed" },
     ],
     defaultValue: "all",

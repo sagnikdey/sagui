@@ -1,13 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Button, Drawer, DrawerClose, DrawerContent, DrawerTrigger } from "@sagui/ui";
 
-const meta = { title: "Overlays/Drawer", component: Drawer, tags: ["autodocs"] } satisfies Meta<typeof Drawer>;
+import { figma } from "../.storybook/figma";
+const meta = { title: "Overlays/Drawer",
+  parameters: { design: figma("108:6768") }, component: Drawer, tags: ["autodocs"] } satisfies Meta<typeof Drawer>;
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 const body = (
   <div className="grid gap-4">
-    <p className="text-muted-foreground">Drag the header toward the edge to dismiss, or press Escape.</p>
+    <p className="text-fg-muted">Drag the header toward the edge to dismiss, or press Escape.</p>
     <DrawerClose asChild><Button>Apply filters</Button></DrawerClose>
   </div>
 );
