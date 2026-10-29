@@ -3,6 +3,8 @@
   "private": true,
   "scripts": {
     "build": "npm run build -w @sagui/tokens -w @sagui/ui -w @sagui/mcp",
+    "dev": "npm run dev:storybook",
+    "storybook": "npm run dev:storybook",
     "dev:storybook": "npm run dev -w @sagui/storybook",
     "dev:docs": "npm run dev -w @sagui/docs",
     "build:storybook": "npm run build && npm run build -w @sagui/storybook",
