@@ -346,6 +346,41 @@
     ]
   },
   {
+    "slug": "advanced-search",
+    "name": "AdvancedSearch",
+    "title": "Advanced Search",
+    "category": "navigation",
+    "description": "Search everything, or run a command, from one ⌘K dialog.",
+    "keywords": [
+      "search",
+      "command k",
+      "command palette",
+      "scopes",
+      "filters",
+      "results"
+    ],
+    "import": "import { AdvancedSearch } from \"@sagui/ui\";",
+    "whenToUse": [
+      "App-wide search across records, with scopes, filters and a preview.",
+      "Typing “>” to switch to commands."
+    ],
+    "whenNotToUse": [
+      "Use CommandPalette for commands only, and SearchField for one list."
+    ],
+    "usage": "import { AdvancedSearch } from \"@sagui/ui\";\n\n<AdvancedSearch open={open} onOpenChange={setOpen} results={results} scopes={scopes} onSelect={(r) => router.push(r.href)} />",
+    "api": [],
+    "keyboard": [],
+    "accessibility": [
+      "The input is a `combobox` that controls a `listbox`, with `aria-activedescendant` on the active row.",
+      "↑ and ↓ move, Enter opens, ⌘/Ctrl+Enter opens in a new tab, Escape closes.",
+      "Full screen on phones, with a Cancel button."
+    ],
+    "motion": [],
+    "responsive": [],
+    "notes": [],
+    "related": []
+  },
+  {
     "slug": "alert",
     "name": "Alert",
     "title": "Alert",
@@ -542,6 +577,38 @@
     "related": [
       "metric-card"
     ]
+  },
+  {
+    "slug": "app-bar",
+    "name": "AppBar",
+    "title": "App Bar",
+    "category": "navigation",
+    "description": "The top bar on tablets and phones, with the menu button, workspace, search and user.",
+    "keywords": [
+      "app bar",
+      "top bar",
+      "header",
+      "mobile",
+      "menu button"
+    ],
+    "import": "import { AppBar } from \"@sagui/ui\";",
+    "whenToUse": [
+      "Below 1024px in a signed-in app, paired with MobileNavigation."
+    ],
+    "whenNotToUse": [
+      "AppShell already includes its own bar. Use AppBar when you compose the layout yourself."
+    ],
+    "usage": "import { AppBar, MobileNavigation, SearchTrigger, Avatar } from \"@sagui/ui\";\n\n<AppBar brand=\"Acme\" onMenuClick={() => setOpen(true)} menuOpen={open} search={<SearchTrigger variant=\"icon\" onOpen={openSearch} />} actions={<Avatar name=\"Sagnik Dey\" size=\"sm\" />} />",
+    "api": [],
+    "keyboard": [],
+    "accessibility": [
+      "The menu button has `aria-expanded` and opens a dialog.",
+      "Hidden from 1024px by default, where the Sidebar takes over."
+    ],
+    "motion": [],
+    "responsive": [],
+    "notes": [],
+    "related": []
   },
   {
     "slug": "app-shell",
@@ -3436,6 +3503,38 @@
     ]
   },
   {
+    "slug": "dropdown-menu",
+    "name": "DropdownMenu",
+    "title": "Dropdown Menu",
+    "category": "overlays",
+    "description": "Show a short list of actions from a button.",
+    "keywords": [
+      "menu",
+      "dropdown",
+      "actions",
+      "more",
+      "overflow"
+    ],
+    "import": "import { DropdownMenu } from \"@sagui/ui\";",
+    "whenToUse": [
+      "A row’s or page’s overflow (⋯) actions.",
+      "Up to about eight actions, grouped by separators."
+    ],
+    "whenNotToUse": [
+      "Use Select to choose a value, and CommandPalette for many commands."
+    ],
+    "usage": "import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator } from \"@sagui/ui\";\n\n<DropdownMenu>\n  <DropdownMenuTrigger asChild><Button variant=\"ghost\" size=\"icon\" aria-label=\"More\" /></DropdownMenuTrigger>\n  <DropdownMenuContent>\n    <DropdownMenuItem shortcut=\"⌘ D\">Duplicate</DropdownMenuItem>\n    <DropdownMenuSeparator />\n    <DropdownMenuItem destructive>Delete</DropdownMenuItem>\n  </DropdownMenuContent>\n</DropdownMenu>",
+    "api": [],
+    "keyboard": [],
+    "accessibility": [
+      "Built on Radix Dropdown Menu: arrow keys move, typing jumps to an item, Escape closes and returns focus to the trigger."
+    ],
+    "motion": [],
+    "responsive": [],
+    "notes": [],
+    "related": []
+  },
+  {
     "slug": "empty-state",
     "name": "EmptyState",
     "title": "Empty state",
@@ -3817,6 +3916,38 @@
     ]
   },
   {
+    "slug": "field",
+    "name": "Field",
+    "title": "Field",
+    "category": "inputs",
+    "description": "Give any control a label, helper text and an error.",
+    "keywords": [
+      "field",
+      "label",
+      "form field",
+      "helper text",
+      "error"
+    ],
+    "import": "import { Field } from \"@sagui/ui\";",
+    "whenToUse": [
+      "A control that has no label of its own, such as a custom picker or a native input.",
+      "Marking a field optional or adding a hint beside the label."
+    ],
+    "whenNotToUse": [
+      "Input, Textarea and Select already include a label, description and error. Use their props."
+    ],
+    "usage": "import { Field } from \"@sagui/ui\";\n\n<Field label=\"Store code\" description=\"Six letters or numbers.\" error={error}>\n  <input />\n</Field>",
+    "api": [],
+    "keyboard": [],
+    "accessibility": [
+      "The label is linked to the control by id. The description and error are linked with `aria-describedby`, and an error sets `aria-invalid`."
+    ],
+    "motion": [],
+    "responsive": [],
+    "notes": [],
+    "related": []
+  },
+  {
     "slug": "floating-button-group",
     "name": "FloatingButtonGroup",
     "title": "Floating button group",
@@ -3973,6 +4104,38 @@
       "split-button",
       "tooltip"
     ]
+  },
+  {
+    "slug": "form",
+    "name": "Form",
+    "title": "Form",
+    "category": "inputs",
+    "description": "Lay out fields, sections and actions with consistent spacing.",
+    "keywords": [
+      "form",
+      "form layout",
+      "fieldset",
+      "form actions"
+    ],
+    "import": "import { Form } from \"@sagui/ui\";",
+    "whenToUse": [
+      "Any page or dialog that collects several fields.",
+      "Splitting a long form into titled sections, with paired fields side by side."
+    ],
+    "whenNotToUse": [
+      "Use Stepper with one Form per step for long linear flows."
+    ],
+    "usage": "import { Form, FormSection, FormRow, FormActions, Input, Button } from \"@sagui/ui\";\n\n<Form onSubmit={save}>\n  <FormSection title=\"Company\">\n    <FormRow>\n      <Input label=\"Legal name\" />\n      <Input label=\"Trading name\" />\n    </FormRow>\n  </FormSection>\n  <FormActions>\n    <Button variant=\"secondary\">Cancel</Button>\n    <Button type=\"submit\">Save</Button>\n  </FormActions>\n</Form>",
+    "api": [],
+    "keyboard": [],
+    "accessibility": [
+      "FormSection is a `fieldset` with its title as the `legend`.",
+      "On phones, actions stack with the primary action on top and fill the width."
+    ],
+    "motion": [],
+    "responsive": [],
+    "notes": [],
+    "related": []
   },
   {
     "slug": "gauge",
@@ -4382,6 +4545,36 @@
     ]
   },
   {
+    "slug": "kbd",
+    "name": "Kbd",
+    "title": "Kbd",
+    "category": "data-display",
+    "description": "Show a keyboard key or shortcut.",
+    "keywords": [
+      "kbd",
+      "keyboard",
+      "shortcut",
+      "hotkey"
+    ],
+    "import": "import { Kbd } from \"@sagui/ui\";",
+    "whenToUse": [
+      "Shortcut hints in menus, tooltips and search."
+    ],
+    "whenNotToUse": [
+      "Use Badge for status or counts."
+    ],
+    "usage": "import { Kbd } from \"@sagui/ui\";\n\n<Kbd keys={[\"⌘\", \"K\"]} />",
+    "api": [],
+    "keyboard": [],
+    "accessibility": [
+      "Renders `kbd` elements, so screen readers announce them as keys."
+    ],
+    "motion": [],
+    "responsive": [],
+    "notes": [],
+    "related": []
+  },
+  {
     "slug": "line-chart",
     "name": "LineChart",
     "title": "Line chart",
@@ -4676,6 +4869,38 @@
     "related": [
       "animated-counter"
     ]
+  },
+  {
+    "slug": "mobile-navigation",
+    "name": "MobileNavigation",
+    "title": "Mobile Navigation",
+    "category": "navigation",
+    "description": "The Sidebar’s pages in a left drawer for tablets and phones.",
+    "keywords": [
+      "mobile navigation",
+      "drawer",
+      "sidebar",
+      "hamburger",
+      "nav"
+    ],
+    "import": "import { MobileNavigation } from \"@sagui/ui\";",
+    "whenToUse": [
+      "Opened from AppBar’s menu button below 1024px."
+    ],
+    "whenNotToUse": [
+      "AppShell already includes it. Use it directly only with a custom layout."
+    ],
+    "usage": "import { MobileNavigation } from \"@sagui/ui\";\n\n<MobileNavigation open={open} onOpenChange={setOpen} title=\"Acme\" nav={nav} currentHref={pathname} />",
+    "api": [],
+    "keyboard": [],
+    "accessibility": [
+      "A modal drawer: focus is trapped inside and returns to the menu button on close.",
+      "Escape, the close button, a tap outside or choosing a page closes it."
+    ],
+    "motion": [],
+    "responsive": [],
+    "notes": [],
+    "related": []
   },
   {
     "slug": "money-input",
@@ -5521,6 +5746,71 @@
     "related": [
       "input"
     ]
+  },
+  {
+    "slug": "page-header",
+    "name": "PageHeader",
+    "title": "Page Header",
+    "category": "navigation",
+    "description": "Title a page with its breadcrumb, status and actions.",
+    "keywords": [
+      "page header",
+      "header",
+      "title",
+      "breadcrumb",
+      "back button",
+      "actions"
+    ],
+    "import": "import { PageHeader } from \"@sagui/ui\";",
+    "whenToUse": [
+      "The top of every page inside AppShell.",
+      "Detail pages that need a back link and a status Badge."
+    ],
+    "whenNotToUse": [
+      "Use a card title for sections within a page."
+    ],
+    "usage": "import { PageHeader, Button } from \"@sagui/ui\";\n\n<PageHeader title=\"Vendors\" description=\"468 active\" actions={<Button>Add vendor</Button>} />",
+    "api": [],
+    "keyboard": [],
+    "accessibility": [
+      "The title is the page’s only `h1`.",
+      "On phones the breadcrumb and search hide, and the actions wrap under the title."
+    ],
+    "motion": [],
+    "responsive": [],
+    "notes": [],
+    "related": []
+  },
+  {
+    "slug": "pagination",
+    "name": "Pagination",
+    "title": "Pagination",
+    "category": "navigation",
+    "description": "Move between pages of a long list or table.",
+    "keywords": [
+      "pagination",
+      "pages",
+      "pager",
+      "table"
+    ],
+    "import": "import { Pagination } from \"@sagui/ui\";",
+    "whenToUse": [
+      "Under a data table with more than one page of results."
+    ],
+    "whenNotToUse": [
+      "Use infinite loading for feeds, and Stepper for steps."
+    ],
+    "usage": "import { Pagination } from \"@sagui/ui\";\n\n<Pagination page={page} pageCount={24} onPageChange={setPage} summary=\"Showing 1–20 of 468\" />",
+    "api": [],
+    "keyboard": [],
+    "accessibility": [
+      "Renders a `nav` labeled “Pagination”. The current page has `aria-current=\"page\"`.",
+      "Gaps are hidden from screen readers, and every page button has a full label."
+    ],
+    "motion": [],
+    "responsive": [],
+    "notes": [],
+    "related": []
   },
   {
     "slug": "password-field",
@@ -6575,6 +6865,37 @@
     ]
   },
   {
+    "slug": "search-trigger",
+    "name": "SearchTrigger",
+    "title": "Search Trigger",
+    "category": "navigation",
+    "description": "Open Advanced Search from a field-like button or ⌘K.",
+    "keywords": [
+      "search",
+      "command k",
+      "shortcut",
+      "trigger"
+    ],
+    "import": "import { SearchTrigger } from \"@sagui/ui\";",
+    "whenToUse": [
+      "In the App Bar or Page Header, to open app-wide search."
+    ],
+    "whenNotToUse": [
+      "Use SearchField to filter a single list in place."
+    ],
+    "usage": "import { SearchTrigger, AdvancedSearch } from \"@sagui/ui\";\n\n<SearchTrigger onOpen={() => setOpen(true)} />\n<AdvancedSearch open={open} onOpenChange={setOpen} results={results} />",
+    "api": [],
+    "keyboard": [],
+    "accessibility": [
+      "A real button with `aria-haspopup=\"dialog\"` and `aria-keyshortcuts`.",
+      "The icon variant keeps “Search” as its accessible name."
+    ],
+    "motion": [],
+    "responsive": [],
+    "notes": [],
+    "related": []
+  },
+  {
     "slug": "segmented-control",
     "name": "SegmentedControl",
     "title": "Segmented control",
@@ -6804,6 +7125,38 @@
       "multi-select",
       "radio-group"
     ]
+  },
+  {
+    "slug": "separator",
+    "name": "Separator",
+    "title": "Separator",
+    "category": "data-display",
+    "description": "Divide content into groups with a thin line.",
+    "keywords": [
+      "separator",
+      "divider",
+      "rule",
+      "hr"
+    ],
+    "import": "import { Separator } from \"@sagui/ui\";",
+    "whenToUse": [
+      "Between groups in a menu, card or toolbar.",
+      "A labeled divider such as “or” between sign-in options."
+    ],
+    "whenNotToUse": [
+      "Use spacing alone when the groups are already clear.",
+      "Use Card or FormSection to group whole sections."
+    ],
+    "usage": "import { Separator } from \"@sagui/ui\";\n\n<Separator />\n<Separator label=\"or\" />",
+    "api": [],
+    "keyboard": [],
+    "accessibility": [
+      "Decorative by default (hidden from screen readers). Set `decorative={false}` when the split carries meaning, and it renders `role=\"separator\"` with its orientation."
+    ],
+    "motion": [],
+    "responsive": [],
+    "notes": [],
+    "related": []
   },
   {
     "slug": "skeleton",

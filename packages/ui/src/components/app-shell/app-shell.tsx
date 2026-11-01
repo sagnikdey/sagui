@@ -79,7 +79,7 @@ const pagesOf = (nav: AppShellNavSection[]) =>
   nav.flatMap((section) => section.items.flatMap((item) => (item.items?.length ? item.items : [item]))).filter((item) => item.href);
 
 /** The longest href that the current path starts with wins, so /deals/42 marks Deals rather than Overview. */
-function currentItem(nav: AppShellNavSection[], currentHref?: string) {
+export function currentItem(nav: AppShellNavSection[], currentHref?: string) {
   const items = pagesOf(nav);
   const explicit = items.find((item) => item.current);
   if (explicit || !currentHref) return explicit?.href;
@@ -105,7 +105,7 @@ function ItemBadge({ item, rail }: { item: AppShellNavItem; rail: boolean }) {
   return simple ? <Badge size="sm" tone={item.badgeTone ?? "neutral"} className="flex-none tabular-nums">{item.badge}</Badge> : <span className="flex-none">{item.badge}</span>;
 }
 
-function NavList({ nav, current, rail, Link, label, layoutId, onNavigate, accent }: {
+export function NavList({ nav, current, rail, Link, label, layoutId, onNavigate, accent }: {
   nav: AppShellNavSection[];
   current?: string;
   rail: boolean;

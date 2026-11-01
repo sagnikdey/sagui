@@ -44,18 +44,18 @@ export interface ComponentDoc {
 
 const order: Record<Category, string[]> = {
   buttons: ["button", "action-button", "split-button", "button-group", "floating-button-group", "expanding-button-group", "copy-button", "confirm-morph"],
-  inputs: ["input", "textarea", "password-field", "password-strength", "search-field", "expanding-search", "inline-edit"],
+  inputs: ["input", "textarea", "password-field", "password-strength", "search-field", "expanding-search", "inline-edit", "field", "form"],
   "special-inputs": ["number-field", "money-input", "phone-input", "tag-input"],
   selection: ["checkbox", "radio-group", "radio-cards", "select", "morph-select", "combobox", "multi-select", "switch", "segmented-control", "chip-group"],
-  navigation: ["app-shell", "tabs", "stepper", "breadcrumb", "command-palette", "user-menu"],
+  navigation: ["app-shell", "tabs", "stepper", "page-header", "pagination", "breadcrumb", "search-trigger", "advanced-search", "command-palette", "app-bar", "mobile-navigation", "user-menu"],
   disclosure: ["accordion"],
-  "data-display": ["avatar", "avatar-group", "badge"],
+  "data-display": ["avatar", "avatar-group", "badge", "separator", "kbd"],
   charts: ["line-chart", "bar-chart", "donut-chart", "sparkline", "gauge", "streamgraph", "brush-chart", "waffle-chart", "slope-chart", "activity-heatmap", "ridgeline", "treemap"],
   data: ["sortable-data-table", "timeline"],
   text: ["text-reveal", "in-view-title", "text-morph", "text-shimmer"],
   cards: ["card", "approval-card", "metric-card", "empty-state", "animated-counter", "skeleton"],
   messages: ["alert", "toast", "notification-center"],
-  overlays: ["dialog", "drawer", "bottom-sheet", "popover", "tooltip"],
+  overlays: ["dialog", "drawer", "bottom-sheet", "popover", "dropdown-menu", "tooltip"],
 };
 
 function read(file: string) {
