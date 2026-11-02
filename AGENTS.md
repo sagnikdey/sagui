@@ -20,5 +20,7 @@ These rules are always on. For anything not covered here, ask the `sagui` MCP se
 - Status never rests on color alone: pair it with an icon, shape or text.
 - Every field has a real label; errors set `aria-invalid` and are announced. Keep focus rings visible.
 - Icon-only controls need an `aria-label`.
+- App frame: `AppShell variant="inset" background="dots"`, a `Breadcrumb` in `header`, and `actions` of `SearchTrigger` first, app extras, then `UserMenu` last (it holds the theme choice).
+- Every page inside an AppShell starts with `<Page title description actions>`. Never hand-build the page `h1` or its outer padding.
 - One primary button per view. Use links for navigation (`<Button asChild>` to keep the look).
 - Don't create a new component if a SagUI one fits. If none does, compose existing ones and say so.

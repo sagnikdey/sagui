@@ -132,6 +132,7 @@ export * from "./components/field/field";
 export * from "./components/form/form";
 export * from "./components/pagination/pagination";
 export * from "./components/page-header/page-header";
+export * from "./components/page/page";
 export * from "./components/search-trigger/search-trigger";
 export * from "./components/advanced-search/advanced-search";
 export * from "./components/dropdown-menu/dropdown-menu";

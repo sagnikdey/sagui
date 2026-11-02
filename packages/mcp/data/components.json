@@ -700,6 +700,18 @@
             "description": "sidebar` sits flush with a dividing border. `inset` floats the sidebar as a rounded panel 12px in from the edges on a muted canvas, marks the current page with an accent pill and keeps the fold toggle in the sidebar header."
           },
           {
+            "name": "background",
+            "type": "\"plain\" | \"dots\"",
+            "default": "\"plain\"",
+            "description": "dots` puts a faint dotted grid behind the page content, aligned to the spacing grid. The sidebar and top bar stay solid."
+          },
+          {
+            "name": "gridSize",
+            "type": "4 | 8",
+            "default": "8",
+            "description": "Gap between dots in pixels when `background=\"dots\"`."
+          },
+          {
             "name": "collapsed",
             "type": "boolean",
             "description": "Controlled rail state on wide screens."
@@ -5775,6 +5787,41 @@
     "accessibility": [
       "The title is the page’s only `h1`.",
       "On phones the breadcrumb and search hide, and the actions wrap under the title."
+    ],
+    "motion": [],
+    "responsive": [],
+    "notes": [],
+    "related": []
+  },
+  {
+    "slug": "page",
+    "name": "Page",
+    "title": "Page",
+    "category": "navigation",
+    "description": "The standard body of an app page: its header, then its sections.",
+    "keywords": [
+      "navigation",
+      "page",
+      "layout",
+      "page layout",
+      "page template",
+      "app page"
+    ],
+    "import": "import { Page } from \"@sagui/ui\";",
+    "whenToUse": [
+      "Every page inside an AppShell. Start the route with `<Page>` so the title, padding and spacing match across apps.",
+      "Dashboards and lists use the default full width. Long forms and reading pages use `width=\"contained\"`."
+    ],
+    "whenNotToUse": [
+      "Use page-header alone for a page that is not inside an AppShell, such as a full-screen wizard.",
+      "Don't add your own `h1` or outer padding around a Page. It already has both."
+    ],
+    "usage": "import { Page, MetricCard } from \"@sagui/ui\";\n\nexport default function DashboardPage() {\n  return (\n    <Page title=\"Dashboard\" description=\"Convenience store master data overview\">\n      <div className=\"grid gap-4 sm:grid-cols-2 xl:grid-cols-4\">\n        <MetricCard label=\"Stores\" value={10} context=\"9 active\" />\n      </div>\n    </Page>\n  );\n}",
+    "api": [],
+    "keyboard": [],
+    "accessibility": [
+      "The title is the page's only `h1`. Give sections inside the page `h2` headings, or use Cards, which title themselves.",
+      "Page is a plain `div`. AppShell already provides the `main` landmark and the skip link target."
     ],
     "motion": [],
     "responsive": [],
