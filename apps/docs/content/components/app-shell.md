@@ -83,6 +83,12 @@ The shell gives you the frame; you fill its slots. Put the page title or a [brea
 
 <!-- demo: Inset -->
 
+### Dotted grid background
+
+`background="dots"` fills the content area with a faint dotted grid, like a FigJam canvas. A dot sits on every `gridSize` pixels (8 by default, or 4 for a finer texture) counted from the top-left of the content, so cards and panels laid out with SagUI spacing land on the dots. The sidebar and top bar stay solid, and cards keep their own surface color on top. Use it for canvas-like work such as builders, boards and dashboards; leave forms and reading pages plain.
+
+<!-- demo: DotGrid -->
+
 ### Remembering the choice
 
 The shell does not store whether the sidebar is folded. Control it with `collapsed` and `onCollapsedChange`, and save the choice where it suits your app, for example a cookie, so the server renders the right width on the next visit.
@@ -110,6 +116,8 @@ const [collapsed, setCollapsed] = useState(initialFromCookie);
 | `sidebarFooter` | `ReactNode` | – | Pinned to the bottom of the sidebar, above the fold toggle in the `sidebar` variant, such as a promo card and the signed-in user. |
 | `sidebarFooterRail` | `ReactNode` | – | Compact footer shown while the sidebar is a rail, such as the user's avatar alone. Without it the footer hides on the rail. |
 | `variant` | `"sidebar" \| "inset"` | `"sidebar"` | `sidebar` sits flush with a dividing border. `inset` floats the sidebar as a rounded panel 12px in from the edges on a muted canvas, marks the current page with an accent pill and keeps the fold toggle in the sidebar header. |
+| `background` | `"plain" \| "dots"` | `"plain"` | `dots` puts a faint dotted grid behind the page content, aligned to the spacing grid. The sidebar and top bar stay solid. |
+| `gridSize` | `4 \| 8` | `8` | Gap between dots in pixels when `background="dots"`. |
 | `collapsed` | `boolean` | – | Controlled rail state on wide screens. |
 | `defaultCollapsed` | `boolean` | `false` | Rail state on first render when uncontrolled. |
 | `onCollapsedChange` | `(collapsed: boolean) => void` | – | Called when the toggle or Cmd/Ctrl + B folds or opens the sidebar. |

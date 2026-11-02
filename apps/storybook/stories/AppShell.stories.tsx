@@ -49,6 +49,9 @@ export const Rail: Story = { args: { defaultCollapsed: true } };
 export const NestedPage: Story = { args: { currentHref: "#deals/42" } };
 export const Inset: Story = { args: { variant: "inset" } };
 export const InsetRail: Story = { args: { variant: "inset", defaultCollapsed: true } };
+export const DotGrid: Story = { args: { background: "dots" } };
+export const DotGridFine: Story = { args: { background: "dots", gridSize: 4 } };
+export const InsetDotGrid: Story = { args: { variant: "inset", background: "dots" } };
 
 /* ---------- Floating MDM shell: mirrors the Figma "App Shell" frame ---------- */
 

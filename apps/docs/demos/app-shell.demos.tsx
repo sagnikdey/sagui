@@ -142,3 +142,18 @@ export function Inset() {
   );
 }
 // #endregion
+
+// #region DotGrid
+export function DotGrid() {
+  return (
+    <div className="h-[360px] w-full overflow-hidden rounded-[var(--radius-lg)] border border-border-default" style={{ "--app-shell-height": "358px" } as CSSProperties}>
+      <AppShell nav={nav} background="dots" currentHref="/app/deals" brand={<span className="font-semibold">Sales</span>} brandMark={<span className="font-semibold">S</span>} header={<span className="type-title">Deals</span>}>
+        <div className="grid gap-4 p-6 sm:grid-cols-2">
+          <div className="h-32 rounded-container border border-border-default bg-bg-surface p-4 type-body-sm text-fg-muted shadow-raised">Cards sit on the 8px grid.</div>
+          <div className="h-32 rounded-container border border-border-default bg-bg-surface p-4 type-body-sm text-fg-muted shadow-raised">Padding and gaps land on dots.</div>
+        </div>
+      </AppShell>
+    </div>
+  );
+}
+// #endregion
