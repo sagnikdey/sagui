@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Kbd } from "@sagui/ui";
 
+import { figma } from "../.storybook/figma";
+
 const meta = {
   title: "Basics/Kbd",
   component: Kbd,
   tags: ["autodocs"],
-  parameters: { layout: "padded" },
+  parameters: { layout: "padded", design: figma("28:103") },
   args: { keys: "Esc" },
 } satisfies Meta<typeof Kbd>;
 export default meta;

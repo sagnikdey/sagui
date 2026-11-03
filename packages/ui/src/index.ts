@@ -89,6 +89,7 @@ export { Popover, PopoverTrigger, PopoverContent, PopoverClose } from "./compone
 
 export { Card, type CardProps } from "./components/card/card";
 export { MetricCard, type MetricCardProps } from "./components/metric-card/metric-card";
+export { Panel, PanelHeader, PanelTitle, PanelDescription, PanelContent, PanelFooter, type PanelProps, type PanelElevation } from "./components/panel/panel";
 export { AnimatedCounter, type AnimatedCounterProps } from "./components/animated-counter/animated-counter";
 export { EmptyState, type EmptyStateProps } from "./components/empty-state/empty-state";
 

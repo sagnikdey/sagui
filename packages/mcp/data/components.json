@@ -5929,6 +5929,39 @@
     "related": []
   },
   {
+    "slug": "panel",
+    "name": "Panel",
+    "title": "Panel",
+    "category": "cards",
+    "description": "A plain surface for forms, details and any other composed content.",
+    "keywords": [
+      "surface",
+      "section",
+      "container",
+      "form panel",
+      "details"
+    ],
+    "import": "import { Panel } from \"@sagui/ui\";",
+    "whenToUse": [
+      "Grouping a form or a block of details on a page.",
+      "A dashboard section with a title and a chart or table inside."
+    ],
+    "whenNotToUse": [
+      "Use card for a titled summary with media, a byline or a quick look.",
+      "Use metric-card for a single number with context."
+    ],
+    "usage": "import { Button, Panel, PanelContent, PanelDescription, PanelFooter, PanelHeader, PanelTitle } from \"@sagui/ui\";\n\n<Panel>\n  <PanelHeader>\n    <PanelTitle>Banking</PanelTitle>\n    <PanelDescription>Account ending 4821</PanelDescription>\n  </PanelHeader>\n  <PanelContent>Payments settle within two business days.</PanelContent>\n  <PanelFooter>\n    <Button variant=\"outline\">Change account</Button>\n  </PanelFooter>\n</Panel>",
+    "api": [],
+    "keyboard": [],
+    "accessibility": [
+      "Panel renders a `section` and PanelTitle an `h2`. Pass `aria-labelledby` with the title's id so the section is named."
+    ],
+    "motion": [],
+    "responsive": [],
+    "notes": [],
+    "related": []
+  },
+  {
     "slug": "password-field",
     "name": "PasswordField",
     "title": "Password field",

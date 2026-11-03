@@ -55,6 +55,7 @@ const loaders: Record<string, () => Promise<DemoModule>> = {
   "stepper": () => import("../demos/stepper.demos"),
   "page": () => import("../demos/page.demos"),
   "page-heading": () => import("../demos/page-heading.demos"),
+  panel: () => import("../demos/panel.demos"),
   "app-top-bar": () => import("../demos/app-top-bar.demos"),
   "separator": () => import("../demos/separator.demos"),
   "kbd": () => import("../demos/kbd.demos"),
