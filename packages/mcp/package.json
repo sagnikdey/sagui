@@ -1,11 +1,16 @@
 {
   "name": "@sagui/mcp",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "MCP server that gives AI tools SagUI components, props, tokens and usage guidance",
   "license": "MIT",
   "type": "module",
-  "bin": { "sagui-mcp": "./src/server.mjs" },
-  "files": ["src", "data"],
+  "bin": {
+    "sagui-mcp": "./src/server.mjs"
+  },
+  "files": [
+    "src",
+    "data"
+  ],
   "scripts": {
     "extract": "node scripts/extract.mjs",
     "build": "npm run extract",
@@ -16,5 +21,7 @@
     "@modelcontextprotocol/sdk": "^1.32.0",
     "zod": "^3.25.0"
   },
-  "publishConfig": { "access": "public" }
+  "publishConfig": {
+    "access": "public"
+  }
 }
