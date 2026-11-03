@@ -837,6 +837,40 @@
     ]
   },
   {
+    "slug": "app-top-bar",
+    "name": "AppTopBar",
+    "title": "AppTopBar",
+    "category": "navigation",
+    "description": "The AppShell top bar: breadcrumb, search, alerts and the user, in the same order in every app.",
+    "keywords": [
+      "navigation",
+      "top bar",
+      "app header",
+      "toolbar",
+      "breadcrumb",
+      "user menu"
+    ],
+    "import": "import { AppTopBar } from \"@sagui/ui\";",
+    "whenToUse": [
+      "Every app built on AppShell. Pass it as AppShell's `header` and leave `actions` empty."
+    ],
+    "whenNotToUse": [
+      "Don't put page actions or filters here. They belong in page-heading.",
+      "Use app-bar for the mobile bar with the menu button."
+    ],
+    "usage": "import { AppShell, AppTopBar, Breadcrumb, NotificationCenter, SearchTrigger, UserMenu } from \"@sagui/ui\";\n\n<AppShell\n  variant=\"inset\"\n  background=\"dots\"\n  nav={nav}\n  header={\n    <AppTopBar\n      breadcrumb={<Breadcrumb items={crumbs} linkComponent={Link} />}\n      search={<SearchTrigger onOpen={() => setSearching(true)} />}\n      alerts={<NotificationCenter notifications={notifications} label=\"Alerts\" />}\n      user={<UserMenu user={user} theme={theme} onThemeChange={setTheme} />}\n    />\n  }\n>\n  {children}\n</AppShell>",
+    "api": [],
+    "keyboard": [],
+    "accessibility": [
+      "Each slot keeps its own semantics: Breadcrumb is a `nav`, and SearchTrigger owns ⌘K.",
+      "Give NotificationCenter a `label` that says what the alerts are about."
+    ],
+    "motion": [],
+    "responsive": [],
+    "notes": [],
+    "related": []
+  },
+  {
     "slug": "approval-card",
     "name": "ApprovalCard",
     "title": "Approval card",
@@ -5787,6 +5821,41 @@
     "accessibility": [
       "The title is the page’s only `h1`.",
       "On phones the breadcrumb and search hide, and the actions wrap under the title."
+    ],
+    "motion": [],
+    "responsive": [],
+    "notes": [],
+    "related": []
+  },
+  {
+    "slug": "page-heading",
+    "name": "PageHeading",
+    "title": "PageHeading",
+    "category": "navigation",
+    "description": "Title a page inside an AppShell with its status and actions.",
+    "keywords": [
+      "navigation",
+      "page heading",
+      "page title",
+      "page header",
+      "header actions",
+      "filters"
+    ],
+    "import": "import { PageHeading } from \"@sagui/ui\";",
+    "whenToUse": [
+      "The top of every page inside an AppShell. Page renders it for you, so most pages pass `title`, `description` and `actions` to Page.",
+      "A single record, with `back` to its list and a `status` Badge."
+    ],
+    "whenNotToUse": [
+      "Use page-header for a page without an AppShell. It adds the breadcrumb and search row above the title.",
+      "Don't put a breadcrumb or search here. They belong in the app-top-bar."
+    ],
+    "usage": "import { Button, PageHeading } from \"@sagui/ui\";\n\nexport function ApplicationsHeading() {\n  return (\n    <PageHeading\n      title=\"Vendor applications\"\n      description=\"Review onboarding submissions and promote approved vendors into MDM.\"\n      actions={\n        <>\n          <Button variant=\"outline\">Export</Button>\n          <Button>Send invitation</Button>\n        </>\n      }\n    />\n  );\n}",
+    "api": [],
+    "keyboard": [],
+    "accessibility": [
+      "The title is the page's only `h1`.",
+      "Give each filter a real `label`. SegmentedControl and MultiSelect announce it."
     ],
     "motion": [],
     "responsive": [],

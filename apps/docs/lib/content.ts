@@ -47,7 +47,7 @@ const order: Record<Category, string[]> = {
   inputs: ["input", "textarea", "password-field", "password-strength", "search-field", "expanding-search", "inline-edit", "field", "form"],
   "special-inputs": ["number-field", "money-input", "phone-input", "tag-input"],
   selection: ["checkbox", "radio-group", "radio-cards", "select", "morph-select", "combobox", "multi-select", "switch", "segmented-control", "chip-group"],
-  navigation: ["app-shell", "tabs", "stepper", "page-header", "page", "pagination", "breadcrumb", "search-trigger", "advanced-search", "command-palette", "app-bar", "mobile-navigation", "user-menu"],
+  navigation: ["app-shell", "tabs", "stepper", "app-top-bar", "page-header", "page-heading", "page", "pagination", "breadcrumb", "search-trigger", "advanced-search", "command-palette", "app-bar", "mobile-navigation", "user-menu"],
   disclosure: ["accordion"],
   "data-display": ["avatar", "avatar-group", "badge", "separator", "kbd"],
   charts: ["line-chart", "bar-chart", "donut-chart", "sparkline", "gauge", "streamgraph", "brush-chart", "waffle-chart", "slope-chart", "activity-heatmap", "ridgeline", "treemap"],

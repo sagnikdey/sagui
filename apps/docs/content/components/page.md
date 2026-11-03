@@ -51,7 +51,7 @@ export default function DashboardPage() {
 }
 ```
 
-Page renders the PageHeader and stacks its children with a `gap-6`, inside `p-4` (`p-6` from 640px). Pass filters or the page's one primary Button as `actions`.
+Page renders a PageHeading and stacks its children with a `gap-6`, inside `p-4` (`p-6` from 640px). Pass filters or the page's one primary Button as `actions`.
 
 ## The standard app frame
 
@@ -66,21 +66,21 @@ Page is one half of the frame every SagUI app shares. The other half is the AppS
   linkComponent={Link}
   brand={<Select label="Team" value={team} options={teams} onValueChange={setTeam} />}
   brandMark={<TeamMark />}
-  header={<Breadcrumb items={crumbs} linkComponent={Link} />}
-  actions={
-    <>
-      <SearchTrigger onOpen={() => setSearching(true)} />
-      {/* App-specific actions, such as NotificationCenter, go here */}
-      <UserMenu user={user} theme={theme} onThemeChange={setTheme} />
-    </>
+  header={
+    <AppTopBar
+      breadcrumb={<Breadcrumb items={crumbs} linkComponent={Link} />}
+      search={<SearchTrigger onOpen={() => setSearching(true)} />}
+      alerts={<NotificationCenter notifications={notifications} label="Alerts" />}
+      user={<UserMenu user={user} theme={theme} onThemeChange={setTheme} />}
+    />
   }
 >
   {children}
 </AppShell>
 ```
 
-- The breadcrumb lives in the top bar, so Page doesn't repeat it.
-- Search comes first in `actions` and the UserMenu comes last. App-specific controls go between them.
+- The breadcrumb, search, alerts and user live in the app-top-bar, so Page doesn't repeat them.
+- Page renders a page-heading: the title, status, description and actions.
 - The UserMenu holds the theme choice. Don't add a separate theme toggle.
 
 ## Examples
